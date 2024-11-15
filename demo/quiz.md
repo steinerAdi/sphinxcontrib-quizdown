@@ -9,10 +9,11 @@ locale: en
 ```html
 <a href="url">link text</a>
 ```
-```c
-int a = 10;
-printf("a = %d", a);
-```
+
+$$
+x=\sqrt{\frac{9}{16}}
+$$
+
 
 Select all correct answers:
 

@@ -60,7 +60,6 @@ def add_quizdown_lib(app: Sphinx, pagename, templatename, context, doctree):
     )
     app.add_js_file(quizdown_js)
 
-
     highlight_code = app.config.quizdown_config.setdefault(
         'highlight_code', False)
 
@@ -70,10 +69,20 @@ def add_quizdown_lib(app: Sphinx, pagename, templatename, context, doctree):
             'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/extensions/quizdownHighlight.js'
         )
         app.add_js_file(quizdown_highlight_js)
-    
+        app.add_js_file(None, body=f"quizdown.register(quizdownHighlight);")
+
+    katex_math = app.config.quizdown_config.setdefault('katex_math', False)
+
+    if katex_math:
+        katex_math_js = app.config.quizdown_config.setdefault(
+            'katex_math_js',
+            'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@0.6.0/public/build/extensions/quizdownKatex.js'
+        )
+        app.add_js_file(katex_math_js)
+        app.add_js_file(None, body=f"quizdown.register(quizdownKatex);")
+
     config_json = json.dumps(app.config.quizdown_config)
     app.add_js_file(None, body=f"quizdown.init({config_json});")
-    app.add_js_file(None, body=f"quizdown.register(quizdownHighlight);")
 
 
 def setup(app: Sphinx):

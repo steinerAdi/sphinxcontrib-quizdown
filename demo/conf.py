@@ -36,17 +36,18 @@ extensions = [
 
 # global options passed to the quizdown library
 quizdown_config = {
-    'quizdown_js': '/home/steiner/projects/github/quizdown-js/public/build/quizdown.js', # quizdown javascript
+    # 'quizdown_js': '',            # quizdown javascript
     'start_on_load': True,			# detect and convert all divs with class quizdown
     'shuffle_answers': True,		# shuffle answers for each question
-    'shuffle_questions': True,     # shuffle questsions for each quiz
+    'shuffle_questions': True,      # shuffle questsions for each quiz
     'primary_color': '#FF851B',     # primary CSS color
     'secondary_color': '#DDDDDD',   # secondary CSS color
-    'title_color': 'green',          # text color of the title
-    'highlight_code': True,        # Enable or disable code highlighting
-    'quizdown_highlight_js' : '/home/steiner/projects/github/quizdown-js/public/build/extensions/quizdownHighlight.js' # Set js for highlight code snippets
+    'title_color': 'green',         # text color of the title
+    'highlight_code': True,         # Enable or disable code highlighting
+    # 'quizdown_highlight_js' : ''  # Set js for highlight code snippets
+    'katex_math' : True,
+    # 'katex_math_js': ''
 }
-
 
 
 # Add any paths that contain templates here, relative to this directory.
