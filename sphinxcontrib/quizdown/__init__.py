@@ -55,22 +55,29 @@ class Quizdown(SphinxDirective):
 
 def add_quizdown_lib(app: Sphinx, pagename, templatename, context, doctree):
     quizdown_js = app.config.quizdown_config.setdefault(
-        'quizdown_js', 
+        'quizdown_js',
         'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js'
     )
-    quizdown_highlight_js = app.config.quizdown_config.setdefault(
-        'quizdown_highlight_js', 
-        'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/extensions/quizdownHighlight.js'
-    )
     app.add_js_file(quizdown_js)
-    app.add_js_file(quizdown_highlight_js)
+
+
+    highlight_code = app.config.quizdown_config.setdefault(
+        'highlight_code', False)
+
+    if highlight_code:
+        quizdown_highlight_js = app.config.quizdown_config.setdefault(
+            'quizdown_highlight_js',
+            'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/extensions/quizdownHighlight.js'
+        )
+        app.add_js_file(quizdown_highlight_js)
+    
     config_json = json.dumps(app.config.quizdown_config)
     app.add_js_file(None, body=f"quizdown.init({config_json});")
     app.add_js_file(None, body=f"quizdown.register(quizdownHighlight);")
 
 
 def setup(app: Sphinx):
-    app.add_directive('quizdown', cls=Quizdown)    
+    app.add_directive('quizdown', cls=Quizdown)
     app.add_config_value('quizdown_config', {}, 'html')
     app.connect('html-page-context', add_quizdown_lib)
     return {
