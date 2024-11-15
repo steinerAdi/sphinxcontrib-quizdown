@@ -58,10 +58,11 @@ def add_quizdown_lib(app: Sphinx, pagename, templatename, context, doctree):
         'quizdown_js', 
         'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js'
     )
-
+    app.add_js_file("https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/extensions/quizdownHighlight.js")
     app.add_js_file(quizdown_js)
     config_json = json.dumps(app.config.quizdown_config)
     app.add_js_file(None, body=f"quizdown.init({config_json});")
+    app.add_js_file(None, body=f"quizdown.register(quizdownHighlight);")
 
 
 def setup(app: Sphinx):

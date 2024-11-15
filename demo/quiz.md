@@ -4,6 +4,19 @@ shuffle_questions: false
 locale: en
 ---
 
+### What is the difference between a tag and an attribute?
+
+```html
+<a href="url">link text</a>
+```
+
+Select all correct answers:
+
+- [x] A tag represents an html element.
+- [x] An attribute defines a property of an html element.
+- [ ] An attribute is everything between the opening and closing tag.
+- [ ] `"url"` is an attribute in the example above.
+
 #### Who is the person in the picture?
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Sir_Tim_Berners-Lee.jpg/330px-Sir_Tim_Berners-Lee.jpg)
@@ -43,22 +56,6 @@ locale: en
 - [ ] for defining a paragraph
 - [ ] for defining code snippet
 - [ ] for defining an image
-
-
-
-### What is the difference between a tag and an attribute?
-
-```html
-<a href="url">link text</a>
-```
-
-Select all correct answers:
-
-- [x] A tag represents an html element.
-- [x] An attribute defines a property of an html element.
-- [ ] An attribute is everything between the opening and closing tag.
-- [ ] `"url"` is an attribute in the example above.
-
 
 #### How many valid HTML element tags are currently defined?
 
