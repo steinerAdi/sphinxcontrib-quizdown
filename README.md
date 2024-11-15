@@ -73,33 +73,36 @@ You can also write you quiz in an external markdown file and reference it like s
 
 The HTML builder will wrap a `<div class="quizdown"></div>` around the text and includes the `quizdown.js` library in the build.
 
-To use another version of quizdown or to set global options you can place a dictionary `quizdown_config` in your project's `conf.py` and change some of the values (quizdown uses the default option of not specified):
+To use another version of quizdown or to set global options you can place a dictionary `quizdown_config` in your project's `conf.py` and change some of the values (quizdown uses the default option if not specified):
 
 ```python
 # global options passed to the quizdown library
 quizdown_config = {
-    'quizdown_js': 'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js' # quizdown javascript
+    'quizdown_js': 'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js', # quizdown javascript
     'start_on_load': True,			# detect and convert all divs with class quizdown
     'shuffle_answers': True,		# shuffle answers for each question
     'shuffle_questions': False,     # shuffle questsions for each quiz
     'primary_color': '#FF851B',     # primary CSS color
     'secondary_color': '#DDDDDD',   # secondary CSS color
-    'text_color': 'black',          # text color of interactive elements
-    'locale': 'en'                  # language of text in user interface
+    'title_color': 'green',         # text color of the title
+    'highlight_code': False,        # Enable or disable code highlighting
+    'quizdown_highlight_js' : 'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@0.6.0/public/build/extensions/quizdownHighlight.js' # Code highlight js
+    'katex_math' : False,           # Enable or disable katex math parser
+    'katex_math_js': 'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@0.6.0/public/build/extensions/quizdownKatex.js' # Katex js
 }
 ```
 
-
 ## 📚 Documentation
 
-> The quizzes are for fun and not for serious assessment. Since everything is rendered on the client side, the hints and solutions to the questions become visible once javascript is disabled in the browser.
+> The quizzes are for fun and not for serious assessment.
+Since everything is rendered on the client side, the hints and solutions to the questions become visible once javascript is disabled in the browser.
 
-Check out the [documentation](https://github.com/bonartm/quizdown-js/blob/main/docs/) on the main project page. You might be interested in:
+Check out the [documentation](https://github.com/bonartm/quizdown-js/blob/main/docs/) on the main project page.
+You might be interested in:
 
 - different [quiz-types](https://github.com/bonartm/quizdown-js/blob/main/docs/syntax.md): single-choice, multiple-choice, sequence.
 - support for [hints and explanations](https://github.com/bonartm/quizdown-js/blob/main/docs/syntax.md#hints-and-comments).
 - [options](https://github.com/bonartm/quizdown-js/blob/main/docs/options.md) for color theme, question shuffling, localization.
-
 
 
 ## Credits

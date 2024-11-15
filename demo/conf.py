@@ -10,10 +10,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
+import os
+import sys
+sys.path.append(os.path.abspath("../sphinxcontrib/"))
 
 # -- Project information -----------------------------------------------------
 
@@ -31,21 +30,24 @@ release = '0.3.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinxcontrib.quizdown'
+    'quizdown'
 ]
 
 
 # global options passed to the quizdown library
 quizdown_config = {
-    'quizdown_js': 'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js', # quizdown javascript
+    # 'quizdown_js': '',            # quizdown javascript
     'start_on_load': True,			# detect and convert all divs with class quizdown
     'shuffle_answers': True,		# shuffle answers for each question
-    'shuffle_questions': False,     # shuffle questsions for each quiz
+    'shuffle_questions': True,      # shuffle questsions for each quiz
     'primary_color': '#FF851B',     # primary CSS color
     'secondary_color': '#DDDDDD',   # secondary CSS color
-    'title_color': 'black'          # text color of the title
+    'title_color': 'green',         # text color of the title
+    'highlight_code': True,         # Enable or disable code highlighting
+    # 'quizdown_highlight_js' : ''  # Code highlight js
+    'katex_math' : True,            # Enable or disable katex math parser
+    # 'katex_math_js': ''           # Katex js
 }
-
 
 
 # Add any paths that contain templates here, relative to this directory.

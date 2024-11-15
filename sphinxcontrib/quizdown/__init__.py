@@ -53,19 +53,40 @@ class Quizdown(SphinxDirective):
         return [quiznode]
 
 
-def add_quizdown_lib(app, pagename, templatename, context, doctree):
+def add_quizdown_lib(app: Sphinx, pagename, templatename, context, doctree):
     quizdown_js = app.config.quizdown_config.setdefault(
-        'quizdown_js', 
+        'quizdown_js',
         'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/quizdown.js'
     )
-
     app.add_js_file(quizdown_js)
+
+    highlight_code = app.config.quizdown_config.setdefault(
+        'highlight_code', False)
+
+    if highlight_code:
+        quizdown_highlight_js = app.config.quizdown_config.setdefault(
+            'quizdown_highlight_js',
+            'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@latest/public/build/extensions/quizdownHighlight.js'
+        )
+        app.add_js_file(quizdown_highlight_js)
+        app.add_js_file(None, body=f"quizdown.register(quizdownHighlight);")
+
+    katex_math = app.config.quizdown_config.setdefault('katex_math', False)
+
+    if katex_math:
+        katex_math_js = app.config.quizdown_config.setdefault(
+            'katex_math_js',
+            'https://cdn.jsdelivr.net/gh/bonartm/quizdown-js@0.6.0/public/build/extensions/quizdownKatex.js'
+        )
+        app.add_js_file(katex_math_js)
+        app.add_js_file(None, body=f"quizdown.register(quizdownKatex);")
+
     config_json = json.dumps(app.config.quizdown_config)
     app.add_js_file(None, body=f"quizdown.init({config_json});")
 
 
-def setup(app):
-    app.add_directive('quizdown', cls=Quizdown)    
+def setup(app: Sphinx):
+    app.add_directive('quizdown', cls=Quizdown)
     app.add_config_value('quizdown_config', {}, 'html')
     app.connect('html-page-context', add_quizdown_lib)
     return {
