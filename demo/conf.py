@@ -44,7 +44,7 @@ quizdown_config = {
     'secondary_color': '#DDDDDD',   # secondary CSS color
     'title_color': 'green',          # text color of the title
     'highlight_code': True,        # Enable or disable code highlighting
-    # 'quizdown_highlight_js' : '' # Set js for highlight code snippets
+    'quizdown_highlight_js' : '/home/steiner/projects/github/quizdown-js/public/build/extensions/quizdownHighlight.js' # Set js for highlight code snippets
 }
 
 
