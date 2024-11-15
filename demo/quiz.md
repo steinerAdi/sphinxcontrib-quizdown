@@ -10,11 +10,6 @@ locale: en
 <a href="url">link text</a>
 ```
 
-$$
-x=\sqrt{\frac{9}{16}}
-$$
-
-
 Select all correct answers:
 
 - [x] A tag represents an html element.

@@ -44,9 +44,9 @@ quizdown_config = {
     'secondary_color': '#DDDDDD',   # secondary CSS color
     'title_color': 'green',         # text color of the title
     'highlight_code': True,         # Enable or disable code highlighting
-    # 'quizdown_highlight_js' : ''  # Set js for highlight code snippets
-    'katex_math' : True,
-    # 'katex_math_js': ''
+    # 'quizdown_highlight_js' : ''  # Code highlight js
+    'katex_math' : True,            # Enable or disable katex math parser
+    # 'katex_math_js': ''           # Katex js
 }
 
 
